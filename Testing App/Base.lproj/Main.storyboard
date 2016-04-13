@@ -1,25 +1,72 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Testing_App" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RcQ-VA-B3S">
+                                <rect key="frame" x="159" y="270" width="205" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="textFieldAction:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="e4X-nZ-9rg"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Picker view" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4V6-bT-r2h">
+                                <rect key="frame" x="164" y="150" width="87" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ENG-Tq-CqZ">
+                                <rect key="frame" x="87" y="270" width="46" height="30"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="countryFlagClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tKE-wD-LOX"/>
+                                </connections>
+                            </button>
+                            <pickerView contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hwN-Wx-DxF">
+                                <rect key="frame" x="0.0" y="520" width="414" height="216"/>
+                            </pickerView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UKl-Pa-l11">
+                                <rect key="frame" x="0.0" y="476" width="414" height="44"/>
+                                <items>
+                                    <barButtonItem title="Item" id="FPI-tb-5Uu"/>
+                                </items>
+                            </toolbar>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UKl-Pa-l11" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4ky-74-QZj"/>
+                            <constraint firstItem="hwN-Wx-DxF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="4th-GE-A1n"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="hwN-Wx-DxF" secondAttribute="bottom" id="uZj-bT-DTQ"/>
+                            <constraint firstItem="hwN-Wx-DxF" firstAttribute="top" secondItem="UKl-Pa-l11" secondAttribute="bottom" id="xwn-k5-HQj"/>
+                        </constraints>
                     </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="pickerView" destination="hwN-Wx-DxF" id="0xz-6x-nL7"/>
+                        <outlet property="selectCountrybutton" destination="ENG-Tq-CqZ" id="L4t-yh-s4X"/>
+                        <outlet property="textFieldOutlet" destination="RcQ-VA-B3S" id="I7c-lJ-mXZ"/>
+                        <outlet property="toolBar" destination="UKl-Pa-l11" id="XmN-W2-exG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="375" y="502"/>
         </scene>
     </scenes>
 </document>
