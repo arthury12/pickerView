@@ -11,14 +11,13 @@ import UIKit
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     override func viewDidLoad() {
-        pickerView.dataSource = self
-        pickerView.delegate = self
+        super.viewDidLoad()
+        
         pickerConfiguration()
         textFieldOutlet.inputAccessoryView = self.toolBarCreation()
         //hidePickerView()
         
         self.selectCountrybutton.setTitle("🇺🇸 ⌵", forState:UIControlState.Normal)
-        super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
