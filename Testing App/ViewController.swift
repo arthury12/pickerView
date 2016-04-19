@@ -10,13 +10,16 @@ import UIKit
 
 class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    @IBOutlet var hiddenTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         pickerConfiguration()
-        textFieldOutlet.inputAccessoryView = self.toolBarCreation()
+//        textFieldOutlet.inputAccessoryView = self.toolBarCreation()
         //hidePickerView()
-        
+        hiddenTextField.inputView = pickerView
+        hiddenTextField.inputAccessoryView = toolBar
+      
         self.selectCountrybutton.setTitle("🇺🇸 ⌵", forState:UIControlState.Normal)
         // Do any additional setup after loading the view, typically from a nib.
     }
@@ -25,7 +28,7 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     
     @IBOutlet weak var selectCountrybutton: UIButton!
     @IBOutlet weak var toolBar: UIToolbar!
-    @IBOutlet weak var pickerView: UIPickerView!
+    @IBOutlet var pickerView: UIPickerView!
     @IBOutlet weak var textFieldOutlet: UITextField!
     
     @IBAction func textFieldAction(sender: AnyObject) {
@@ -33,8 +36,11 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
 
     @IBAction func countryFlagClicked(sender: AnyObject) {
-        self.view.addSubview(self.pickerView)
-        self.view.addSubview(self.toolBar)
+//        hiddenTextField.inputView = pickerView
+//        hiddenTextField.inputAccessoryView = toolBar
+        hiddenTextField.becomeFirstResponder()
+//        self.view.addSubview(self.pickerView)
+//        self.view.addSubview(self.toolBar)
 //        guard (self.pickerView == nil) else {
 //            self.showPickerView()
 //            return
@@ -67,13 +73,14 @@ class ViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSo
     }
     
     func hidePickerView() {
-        self.pickerView.removeFromSuperview()
-        toolBar.removeFromSuperview()
+        hiddenTextField.resignFirstResponder()
+//        self.pickerView.removeFromSuperview()
+//        toolBar.removeFromSuperview()
     }
     
     func showPickerView() {
-        self.view.addSubview(self.pickerView)
-        self.view.addSubview(self.toolBar)
+//        self.view.addSubview(self.pickerView)
+//        self.view.addSubview(self.toolBar)
     }
     
     /***** textFieldDelegate *****/
